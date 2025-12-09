@@ -1,0 +1,7 @@
+@media (max-width: 767px) {
+  #sideNav img.logo-app {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
