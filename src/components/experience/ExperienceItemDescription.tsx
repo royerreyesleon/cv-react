@@ -35,7 +35,17 @@ export const ExperienceItemDescription = ({ item }: Props) => {
         }}
       ></p>
 
-      {item.tools.length > 0 && <ExperienceItemBadge item={item} />}
+      <div className="small">
+        {item.show_tools && item.tools.length > 0 && (
+          <ExperienceItemBadge items={item.tools} type="tools" />
+        )}
+        {item.show_attitudes && item.attitudes.length > 0 && (
+          <ExperienceItemBadge items={item.attitudes} type="attitudes" />
+        )}
+        {item.show_aptitudes && item.aptitudes.length > 0 && (
+          <ExperienceItemBadge items={item.aptitudes} type="aptitudes" />
+        )}
+      </div>
     </div>
   );
 };

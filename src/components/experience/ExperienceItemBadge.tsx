@@ -1,17 +1,22 @@
-import type { Experience } from '../../interfaces/experience.interface';
+import { useApp } from '../../hooks/useApp';
 
 type Props = {
-  item: Experience;
+  items: { es: string; en: string }[];
+  type: 'tools' | 'attitudes' | 'aptitudes';
 };
 
-export const ExperienceItemBadge = ({ item }: Props) => {
+export const ExperienceItemBadge = ({ items, type }: Props) => {
+  const { lang } = useApp();
   return (
-    <div className="m-1 small">
-      {item.tools.map((item, index) => (
+    <>
+      {items.map((item, index) => (
         <span key={index} className="badge text-bg-secondary m-1">
-          {item}
+          {type === 'attitudes' && <i className="fa fa-circle-check text-info"></i>}
+          {type === 'aptitudes' && <i className="fa fa-star text-warning"></i>}
+          {type !== 'tools' && ' '}
+          {lang === 'es' ? item.es : item.en}
         </span>
       ))}
-    </div>
+    </>
   );
 };

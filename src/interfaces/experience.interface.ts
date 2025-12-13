@@ -13,5 +13,10 @@ export interface Experience {
   status?: boolean;
   public?: boolean;
   is_remote?: boolean;
-  tools: string[];
+  tools: { es: string; en: string }[];
+  attitudes: { es: string; en: string }[];
+  aptitudes: { es: string; en: string }[];
+  show_tools: boolean;
+  show_attitudes: boolean;
+  show_aptitudes: boolean;
 }
